@@ -1,9 +1,26 @@
-<h3>Class: <%= @car.category.name %></h3>
-<hr/>
-<h2><%= @car.name %></h2>
-<p><%= @car.description %></p>
+<div class="row">
+
+<div class="col-md-4">
+<%= image_tag @car.car_img.url(:car_show), class: "car-show" %>
+</div>
+
+<div class="col-md-8">
+	<h3>Class: <%= @car.category.name %></h3>
+	<hr/>
+	<h2><%= @car.name %></h2>
+	<p><%= @car.description %></p>
+</div>
 
 
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+
+	<!-- wherwrew -->
+		
+	</div>
+</div>
 <%= link_to "Back", root_path %>
 
 <% if user_signed_in? %>

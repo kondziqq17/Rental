@@ -51,7 +51,7 @@ end
 	private
 
 		def car_params
-			params.require(:car).permit(:name, :description, :category_id)
+			params.require(:car).permit(:name, :description, :category_id, :car_img)
 		end
 
 		def find_car

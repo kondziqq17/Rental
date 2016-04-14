@@ -2,11 +2,19 @@
 
 <% if @cars.count == 0 %>
 
-	<h1>There are no cars currently in this class</h1>
-
+	<h1>There are no cars currently in this category</h1>
 <% else %>
 
+<div class="row">
+
 	<% @cars.each do |car| %>
-		<h2><%= link_to car.name, car_path(car) %></h2>
-	<% end %>
+	<div class="col-md-3">
+
+			<a href="/cars/<%= car.id %>">
+			<%= image_tag car.car_img.url(:car_index), class: "car" %>
+			</a>
+			</div>
+			<p><%= car.name %></p>
+<% end %>
+</div>
 <% end %>
