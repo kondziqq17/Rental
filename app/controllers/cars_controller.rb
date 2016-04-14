@@ -2,7 +2,12 @@ class CarsController < ApplicationController
 	before_action :find_car, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@cars = Car.all.order("created_at DESC")
+		if params[:category].blank?
+			@cars = Car.all.order("created_at DESC")
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@cars = Car.where(:category_id => @category_id).order("created_at DESC")
+		end
 	end
 
 	def show
@@ -25,9 +30,11 @@ class CarsController < ApplicationController
 	end
 
 	def edit
+		@categories = Category.all.map{ |c| [c.name, c.id ]}
 	end
 
 	def update
+		   @car.category_id = params[:category_id]
 		if @car.update(car_params)
 			redirect_to car_path(@car)
 		else

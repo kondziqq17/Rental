@@ -1,3 +1,12 @@
-<% @cars.each do |car| %>
-	<h2><%= link_to car.name, car_path(car) %></h2>
+<h1 class="current-category"><%= params[:category] %></h1>
+
+<% if @cars.count == 0 %>
+
+	<h1>There are no cars currently in this class</h1>
+
+<% else %>
+
+	<% @cars.each do |car| %>
+		<h2><%= link_to car.name, car_path(car) %></h2>
+	<% end %>
 <% end %>
