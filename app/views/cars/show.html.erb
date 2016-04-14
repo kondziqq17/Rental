@@ -2,5 +2,13 @@
 <p><%= @car.description %></p>
 
 <%= link_to "Back", root_path %>
+
+<% if user_signed_in? %>
+
+<% if @car.user_id == current_user.id %>
+
 <%= link_to "Edit", edit_car_path(@car) %>
 <%= link_to "Delete", car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+
+<% end %>

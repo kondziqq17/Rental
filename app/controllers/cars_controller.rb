@@ -9,11 +9,13 @@ class CarsController < ApplicationController
 	end
 
 	def new
-		@car = Car.new
+		@car = current_user.cars.build
+		@categories = Category.all.map{ |c| [c.name, c.id ]}
 	end
 
 	def create
-		@car = Car.new(car_params)
+		@car = current_user.cars.build(car_params)
+		@car.category_id = params[:category_id]
 
 		if @car.save
 			redirect_to root_path
@@ -42,7 +44,7 @@ end
 	private
 
 		def car_params
-			params.require(:car).permit(:name, :description)
+			params.require(:car).permit(:name, :description, :category_id)
 		end
 
 		def find_car
