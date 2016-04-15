@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
-	before_action :find_car, only: [:show, :edit, :update, :destroy]
+	before_action :find_car, only: [:show, :edit, :update, :destroy,]
+	before_action :authenticate_user!, only: [:new, :edit]
 
 	def index
 		if params[:category].blank?

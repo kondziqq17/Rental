@@ -3,18 +3,25 @@
 <% if @cars.count == 0 %>
 
 	<h1>There are no cars currently in this category</h1>
+
 <% else %>
 
 <div class="row">
 
 	<% @cars.each do |car| %>
+
 	<div class="col-md-3">
 
 			<a href="/cars/<%= car.id %>">
 			<%= image_tag car.car_img.url(:car_index), class: "car" %>
 			</a>
-			</div>
 			<p><%= car.name %></p>
+			</div>
+
 <% end %>
+
 </div>
+
 <% end %>
+<br>
+<%= link_to "Add Car", new_car_path, class: "btn btn-custom" %>

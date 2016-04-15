@@ -1,3 +1,5 @@
+<div class="col-md-6 col-md-offset-3">
+	<div class="edit-car-form">
 <h1>Edit Car</h1>
 
 <%= simple_form_for @car, :html => { :multipart => true } do |f| %>
@@ -5,6 +7,9 @@
 <%= f.file_field :car_img %>
 <%= f.input :name, label: "Car Name" %>
 <%= f.input :description %>
-<%= f.button :submit %>
+<%= f.button :submit, :class => "btn-custom2" %>
 
 <% end %>
+
+</div>
+</div>

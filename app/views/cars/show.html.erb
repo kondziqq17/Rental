@@ -1,3 +1,4 @@
+<div class="col-md-7 col-md-offset-2">
 <div class="row">
 
 <div class="col-md-4">
@@ -5,30 +6,31 @@
 </div>
 
 <div class="col-md-8">
-	<h3>Class: <%= @car.category.name %></h3>
+
+	<div class="car-info">
+
+	<h3 class="car-category">Class: <%= @car.category.name %></h3>
 	<hr/>
-	<h2><%= @car.name %></h2>
-	<p><%= @car.description %></p>
+	<h2 class="car-name"><%= @car.name %></h2>
+	<p class="car-desc"><%= @car.description %></p>
+</div>
 </div>
 
-
 </div>
 
-<div class="row">
-	<div class="col-md-4">
+<br>
 
-	<!-- wherwrew -->
-		
-	</div>
-</div>
-<%= link_to "Back", root_path %>
+<div class="links btn-group">
+
+<%= link_to "Back", root_path, class: "btn btn-custom" %>
 
 <% if user_signed_in? %>
 
 <% if @car.user_id == current_user.id %>
 
-<%= link_to "Edit", edit_car_path(@car) %>
-<%= link_to "Delete", car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Edit", edit_car_path(@car), class: "btn btn-custom" %>
+<%= link_to "Delete", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-custom" %>
 <% end %>
 
 <% end %>
+</div>
