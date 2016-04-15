@@ -155,6 +155,7 @@ p.alert, p.notice {
 	height: 350px;
 	width: 350px;
 	@include background-tile;
+	@include box-sizing(border-box);
 }
 
 .car-info {
@@ -173,6 +174,7 @@ p.alert, p.notice {
 		line-height: 1.5;
 		margin-bottom: 15px;
 		margin-top: 15px;
+
 	}
 
 }
